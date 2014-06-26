@@ -155,7 +155,7 @@ class Comment extends SB_Controller
 				//$content=$this->input->post('content',true);
 				$comment=array(
 					'content'=>filter_code($content),
-					'replytime'=>time()
+					'updatetime'=>time()
 				);
 				$this->load->helper('format_content');
 				$comment['content']=format_content($comment['content']);

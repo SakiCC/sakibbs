@@ -121,7 +121,7 @@ at
 <span class='snow pull-right' id="r<?php echo ($page-1)*10+$key+1;?>">
 #<?php echo ($page-1)*10+$key+1;?> -<a href="#reply" class="clickable startbbs"  data-mention="<?php echo $v['username']?>">回复</a></span>
 <span><a href="<?php echo site_url('user/info/'.$v['uid']);?>" class="dark startbbs profile_link" title="<?php echo $v['username']?>"><?php echo $v['username']?></a></span>
-<span class="snow">&nbsp;&nbsp;<?php echo $this->myclass->friendly_date($v['replytime'])?></span>
+<span class="snow">&nbsp;&nbsp;<?php echo $this->myclass->friendly_date($v['replytime'])?><?php if($v['updatetime']!=null) echo '（最后编辑于'.$this->myclass->friendly_date($v['updatetime']).'）' ?></span>
 </div>
 <div class='content reply_content'><?php echo stripslashes($v['content'])?></div>
 <div class="pull-right">

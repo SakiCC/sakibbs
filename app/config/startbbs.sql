@@ -55,6 +55,7 @@ CREATE TABLE IF NOT EXISTS `stb_comments` (
   `uid` int(11) NOT NULL DEFAULT '0',
   `content` text,
   `replytime` char(10) DEFAULT NULL,
+  `updatetime` char(10) DEFAULT NULL,
   PRIMARY KEY (`id`,`fid`,`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
