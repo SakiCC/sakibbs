@@ -35,14 +35,14 @@
 </td>
 <td valign='top'>
 <span class='gray'>
-<strong><a href="<?php echo site_url('user/info/'.$v['suid']);?>" class="startbbs profile_link" title="<?php echo $v['username'];?>"><?php echo $v['username'];?></a></strong>
+<a href="<?php echo site_url('user/info/'.$v['suid']);?>" class="startbbs profile_link" title="<?php echo $v['username'];?>"><?php echo $v['username'];?></a>
 <?php if($v['ntype']==0){?>
 回复了你的贴子
-<a href="<?php echo site_url('forum/view/'.$v['fid']);?>" class="startbbs"><?php echo $v['title'];?>...</a>
+<strong><a href="<?php echo site_url('forum/view/'.$v['fid']);?>" class="startbbs"><?php echo $v['title'];?>...</a></strong>
 <?php }?>
 <?php if($v['ntype']==1){?>
 在回复
-<a href="<?php echo site_url('forum/view/'.$v['fid']);?>" class="startbbs"><?php echo $v['title'];?>...</a>
+<strong><a href="<?php echo site_url('forum/view/'.$v['fid']);?>" class="startbbs"><?php echo $v['title'];?>...</a></strong>
 时提到了@你
 <?php }?>
 </span>
