@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta content='## 电子邮件&#x000A;&#x000A;daqing1986@gmail.com&#x000A;&#x000A;## QQ&#x000A;&#x000A;420771712 (请注明 rabel)&#x000A;&#x000A;&#x000A;' name='description'>
+<!DOCTYPE html><html><head>
 <meta charset='UTF-8'>
 <meta content='True' name='HandheldFriendly'>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
@@ -14,20 +14,19 @@
 <div class='inner'>
 <div class='page'>
 <article>
-<h1 class='page-header'>
-<?php echo $title;?><span class="red"><?php echo $q;?></span>列表
+<h1 class='page-header' style="margin-top:20px;">
+<?php echo $title;?>包含<span class="red"><?php echo $q;?></span>的话题列表
 </h1>
-<!-- Put the following javascript before the closing </head> tag. -->
-  
-<script>
-  (function() {
-    var cx = 'partner-pub-0724371017144625:2619846736';
-    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.cn/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
+<ul>
+<!-- Put the following javascript before the closing </head> tag. --> 
+<?php
+$q = $_GET["q"];
+$rSearch = mysql_query("select * from stb_forums where title like '%$q%'");
+while ($row = mysql_fetch_array($rSearch)){
+	echo "<li><a style='height:40px; line-height:40px;' target='_blank' href='site_url()/forum/view/{$row['fid']}'>".$row['title']."</a></li>";
+}
+?>
+</ul>
 <!-- Place this tag where you want the search results to render -->
 <gcse:searchresults-only></gcse:searchresults-only>
 </article>
@@ -39,40 +38,6 @@
 <div class='col-xs-12 col-sm-6 col-md-4' id='Rightbar'>
 
 <?php $this->load->view('block/right_login');?>
-
-<div class='box'>
-<div class='box-header'>
-社区运行状态
-</div>
-<div class='inner'>
-<table border='0' cellpadding='3' cellspacing='0' width='100%'>
-<tr>
-<td align='right' width='60'>
-<span class='gray'>注册会员</span>
-</td>
-<td align='left'>
-<strong>468</strong>
-</td>
-</tr>
-<tr>
-<td align='right' width='50'>
-<span class='gray'>话题</span>
-</td>
-<td align='left'>
-<strong>193</strong>
-</td>
-</tr>
-<tr>
-<td align='right' width='50'>
-<span class='gray'>回复</span>
-</td>
-<td align='left'>
-<strong>1060</strong>
-</td>
-</tr>
-</table>
-</div>
-</div>
 
 <?php $this->load->view('block/right_ad');?>
 
