@@ -43,7 +43,6 @@
 <!--<span class='gray bigger'><?php echo $signature?></span>-->
 <div class='sep5'></div>
 <span class='snow'>
-<?php echo $username?>
 第
 <?php echo $uid?>
 号会员, 加入于
@@ -51,13 +50,13 @@
 </span>
 <div class='sep10'></div>
 <table border='0' cellpadding='2' cellspacing='0' width='100%'>
-<tr>
+<!--<tr>
 <td width='50%'>
 <span style='line-height: 16px;'>
 积分:<?php echo $credit?>
 </span>
 </td>
-</tr>
+</tr>-->
 <tr>
 <td width='50%'>
 <span style='line-height: 16px;'>
