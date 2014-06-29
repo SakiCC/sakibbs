@@ -3,3 +3,5 @@
 
 *.cache
 *.swp
+
+plugins/kindeditor/plugins/emoticons/images/static.png
