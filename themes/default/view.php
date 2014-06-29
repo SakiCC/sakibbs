@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:wb=“http://open.weibo.com/wb”>
 <head>
 <title><?php echo $content['title']?> - <?php echo $settings['site_name']?></title>
 <meta charset='UTF-8'>
@@ -7,9 +7,11 @@
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 <meta name="keywords" content="<?php echo $content['keywords']?>" />
 <meta name="description" content="<?php echo $content['description'];?>" />
+
 <?php $this->load->view ('header-meta');?>
 <script src="<?php echo base_url('static/common/js/topic.js')?>" type="text/javascript"></script>
 <script src="<?php echo base_url('static/common/js/plugins.js')?>" type="text/javascript"></script>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 <?php if($this->config->item('show_editor')=='on'){?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('static/common/js/editor/jquery.editor.css')?>" />
 <script type="text/javascript" src="<?php echo base_url('static/common/js/editor/jquery.editor.js')?>"></script>
@@ -69,8 +71,8 @@ at
 </p>
 <?php }?>
 </div>
-<div class='inner'>
 <?php if($this->auth->is_user($content['uid']) || $this->auth->is_admin() || $this->auth->is_master($cate['cid'])){?>
+<div class='inner'>
 <a href="<?php echo site_url('forum/edit/'.$content['fid']);?>" class="btn btn-default btn-sm unbookmark" data-method="edit" rel="nofollow">编辑此贴</a>
 <a href="<?php echo site_url('forum/del/'.$content['fid'].'/'.$content['cid'].'/'.$content['uid']);?>" class="btn btn-sm btn-danger" data-method="edit" rel="nofollow">删除</a>
 <?php }?>
@@ -82,12 +84,13 @@ at
 取消置顶
 <?php }?>
 </a>
-<?php }?>
 <div align='right' class='pull-right'>
 <!--<a href="/topics/187/bookmarks" class="btn btn-xs bookmark" data-method="post" rel="nofollow">加入收藏</a>-->
 </div>
 &nbsp;&nbsp;
 </div>
+<?php }?>
+<div class='footer'><wb:share-button appkey="微博appkey" addition="simple" type="button"></wb:share-button></div>
 <?php }?>
 </article>
 </div>
