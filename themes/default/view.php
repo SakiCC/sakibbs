@@ -47,6 +47,7 @@
 <small class='topic-meta'>
 By
 <a href="<?php echo site_url('user/info/'.$content['uid']);?>" class="dark startbbs profile_link" title="<?php echo $content['username']?>"><?php echo $content['username']?></a>
+<?php if($content['signature']) { echo '('.$content['signature'].')'; } ?>&nbsp;
 at
 <?php echo date('Y-m-d h:i:s',$content['addtime']);?>,
 <?php echo $content['views']?>次浏览 • <?php echo $content['favorites'];?>人收藏
@@ -122,9 +123,9 @@ at
 <div class="col-md-11">
 <div>
 <span class='snow pull-right' id="r<?php echo ($page-1)*10+$key+1;?>">
-#<?php echo ($page-1)*10+$key+1;?> -<a href="#reply" class="clickable startbbs"  data-mention="<?php echo $v['username']?>">回复</a></span>
+#<?php echo ($page-1)*10+$key+1;?> -<a href="#reply" class="clickable startbbs"  data-mention="<?php echo $v['username']?>">&nbsp;回复</a></span>
 <span><a href="<?php echo site_url('user/info/'.$v['uid']);?>" class="dark startbbs profile_link" title="<?php echo $v['username']?>"><?php echo $v['username']?></a></span>
-<span class="snow">&nbsp;&nbsp;<?php echo $this->myclass->friendly_date($v['replytime'])?><?php if($v['updatetime']!=null) echo '（最后编辑于'.$this->myclass->friendly_date($v['updatetime']).'）' ?></span>
+<span class="snow"><?php if($v['signature']) { echo '('.$v['signature'].')'; } ?>&nbsp;&nbsp;<?php echo $this->myclass->friendly_date($v['replytime'])?><?php if($v['updatetime']!=null) echo '（最后编辑于'.$this->myclass->friendly_date($v['updatetime']).'）' ?></span>
 </div>
 <div class='content reply_content'><?php echo stripslashes($v['content'])?></div>
 <div class="pull-right">

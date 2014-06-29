@@ -115,7 +115,7 @@ $query=$this->db->query($sql);
 
     public function get_forum_by_fid ($fid)
     {
-		$this->db->select('forums.*,users.username, users.avatar');
+		$this->db->select('forums.*,users.username, users.avatar,users.signature');
 		$this->db->join('users', 'users.uid = forums.uid');
     	$query = $this->db->where('fid',$fid)->get('forums');
     	return $query->row_array();
